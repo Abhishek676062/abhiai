@@ -17,9 +17,8 @@ export default function Footer() {
               We turn your business into an AI-powered system. From going digital to full AI automation — we help you grow faster.
             </p>
             <div className="flex items-center gap-4 text-gray-400">
-              <Link href="#" className="hover:text-[#00f0ff] transition-colors"><FaLinkedin size={20} /></Link>
-              <Link href="#" className="hover:text-[#00f0ff] transition-colors"><FaTwitter size={20} /></Link>
-              <Link href="#" className="hover:text-[#00f0ff] transition-colors"><FaInstagram size={20} /></Link>
+              <Link href="https://www.linkedin.com/in/abhi-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors"><FaLinkedin size={20} /></Link>
+              <Link href="https://www.instagram.com/abhi.ai_/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors"><FaInstagram size={20} /></Link>
             </div>
           </div>
 
@@ -51,7 +50,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="mt-1 text-[#00f0ff]" />
-                <span>hello@abhiai.in</span>
+                <a href="mailto:shabhishek055@gmail.com" className="hover:text-white transition-colors">shabhishek055@gmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-[#00f0ff]" />

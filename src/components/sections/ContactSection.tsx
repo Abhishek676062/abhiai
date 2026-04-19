@@ -37,13 +37,13 @@ export default function ContactSection() {
                 <div className="w-10 h-10 rounded-full bg-[#7c3aed]/20 flex items-center justify-center text-[#7c3aed]">
                   <Phone size={18} />
                 </div>
-                <span>+91 99999 99999</span>
+                <span>+91 95756 76062</span>
               </div>
               <div className="flex items-center gap-4 text-gray-300">
                 <div className="w-10 h-10 rounded-full bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]">
                   <Mail size={18} />
                 </div>
-                <span>hello@abhiai.in</span>
+                <a href="mailto:shabhishek055@gmail.com" className="hover:text-white">shabhishek055@gmail.com</a>
               </div>
               <div className="flex items-center gap-4 text-gray-300">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white">

@@ -11,7 +11,7 @@ const plans = [
   {
     name: "Starter",
     description: "Perfect for establishing a digital presence.",
-    price: "₹4,999",
+    price: "Affordable Price",
     features: [
       "Google Business Profile Setup",
       "Basic Landing Page",
@@ -23,7 +23,7 @@ const plans = [
   {
     name: "Growth",
     description: "Comprehensive marketing and digital footprint.",
-    price: "₹14,999",
+    price: "Custom Quote",
     features: [
       "Everything in Starter",
       "Multi-page Website",
@@ -36,7 +36,7 @@ const plans = [
   {
     name: "AI Smart Business",
     description: "Full AI automation to scale your operations.",
-    price: "₹29,999",
+    price: "Connect with Team",
     features: [
       "Everything in Growth",
       "Custom AI Chatbot (RAG)",
@@ -88,8 +88,7 @@ export default function PricingSection() {
                 
                 <CardContent className="flex-1 flex flex-col pt-6">
                   <div className="text-center mb-8">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-gray-400 text-sm">/mo</span>
+                    <span className="text-2xl font-bold text-white">{plan.price}</span>
                   </div>
                   
                   <ul className="space-y-4 flex-1">
@@ -111,7 +110,7 @@ export default function PricingSection() {
                           : 'bg-white/10 text-white hover:bg-[#7c3aed]'
                       }`}
                     >
-                      Get Started
+                      Connect with Team
                     </Button>
                   </Link>
                 </CardFooter>

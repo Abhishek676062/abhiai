@@ -59,6 +59,29 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased dark scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground relative">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Abhi.ai",
+              "image": "https://abhiai.in/og-image.jpg",
+              "url": "https://abhiai.in",
+              "telephone": "+919575676062",
+              "email": "shabhishek055@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN"
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "Abhishek Sharma"
+              },
+              "description": "Premium AI services, RAG chatbots, and full-stack development for businesses."
+            })
+          }}
+        />
         <Navbar />
         <main className="flex-1">
           {children}
