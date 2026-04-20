@@ -61,12 +61,6 @@ module.exports = {
       changefreq,
       priority,
       lastmod: new Date().toISOString(),
-      alternateRefs: [
-        {
-          href: `https://www.abhiai.in${path}`,
-          hreflang: 'en',
-        },
-      ],
     }
   },
 
