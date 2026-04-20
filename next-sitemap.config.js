@@ -2,7 +2,7 @@
 module.exports = {
   siteUrl: 'https://www.abhiai.in',
   generateRobotsTxt: true,
-  generateIndexSitemap: true,
+  generateIndexSitemap: false,
 
   changefreq: 'daily',
   priority: 0.7,
@@ -23,9 +23,7 @@ module.exports = {
         allow: '/',
       },
     ],
-    additionalSitemaps: [
-      'https://www.abhiai.in/sitemap.xml',
-    ],
+    additionalSitemaps: [],
   },
 
   transform: async (config, path) => {
