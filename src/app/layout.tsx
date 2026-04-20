@@ -16,6 +16,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.abhiai.in"),
+  alternates: {
+    canonical: '/',
+  },
   title: "Abhi.ai | AI Solutions & Automation for Businesses",
   description: "We turn your business into an AI-powered system. Get custom RAG chatbots, WhatsApp automation, and full-stack AI applications.",
   keywords: ["AI automation", "RAG chatbot", "WhatsApp automation", "AI for SMEs", "Business digitalization", "Next.js development"],
@@ -23,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abhi.ai | AI Solutions & Automation",
     description: "Transform your business with AI. Chatbots, automation, and full-stack development tailored for growth.",
-    url: "https://abhiai.in",
+    url: "https://www.abhiai.in",
     siteName: "Abhi.ai",
     images: [
       {
-        url: "https://abhiai.in/og-image.jpg", // You'll need to add this image later
+        url: "https://www.abhiai.in/og-image.jpg", // You'll need to add this image later
         width: 1200,
         height: 630,
         alt: "Abhi.ai Preview",
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Abhi.ai | AI Solutions & Automation",
     description: "Transform your business with AI. Chatbots, automation, and full-stack development tailored for growth.",
-    images: ["https://abhiai.in/og-image.jpg"],
+    images: ["https://www.abhiai.in/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -66,8 +70,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Abhi.ai",
-              "image": "https://abhiai.in/og-image.jpg",
-              "url": "https://abhiai.in",
+              "image": "https://www.abhiai.in/og-image.jpg",
+              "url": "https://www.abhiai.in",
               "telephone": "+919575676062",
               "email": "shabhishek055@gmail.com",
               "address": {
