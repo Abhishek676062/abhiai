@@ -72,9 +72,6 @@ module.exports = {
     }
   },
 
-  // I HAVE COMMENTED THIS OUT TEMPORARILY.
-  // Uncomment this block ONLY AFTER you actually create these pages in the `src/app/` folder.
-  /*
   additionalPaths: async (config) => {
     const importantPages = [
       '/ai-agent-development',
@@ -86,11 +83,12 @@ module.exports = {
       '/case-studies',
       '/contact',
       '/about',
+      '/privacy-policy',
+      '/terms-of-service',
     ]
 
     return Promise.all(
       importantPages.map((path) => config.transform(config, path))
     )
   },
-  */
 }

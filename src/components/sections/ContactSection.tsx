@@ -10,28 +10,47 @@ import { Button } from "../ui/button";
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    // Replace YOUR_ACCESS_KEY_HERE with the key you get from web3forms.com
+    formData.append("access_key", "3582659b-5551-4cf3-8e4c-1018b0749b7c");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Success! Your message has been sent. We will contact you shortly.");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        alert("Something went wrong. Please try again or email us directly.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please check your internet connection.");
+    } finally {
       setIsSubmitting(false);
-      alert("Thanks for your interest! We will contact you shortly.");
-    }, 1500);
+    }
   };
 
   return (
     <section id="contact" className="py-24 relative bg-black/50 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl overflow-hidden glassmorphism-dark flex flex-col md:flex-row">
-          
+
           {/* Left: Info */}
           <div className="md:w-2/5 p-10 bg-gradient-to-br from-[#0a0a0a] to-[#1a1a2e] border-r border-white/10">
             <h3 className="text-3xl font-bold text-white mb-4 font-heading">Let's Build the <span className="text-[#00f0ff]">Future</span></h3>
             <p className="text-gray-400 mb-8">
               Book a free consultation to discuss how AI can transform your business operations and accelerate your growth.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-center gap-4 text-gray-300">
                 <div className="w-10 h-10 rounded-full bg-[#7c3aed]/20 flex items-center justify-center text-[#7c3aed]">
@@ -61,26 +80,26 @@ export default function ContactSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm text-gray-400">Your Name</label>
-                  <Input required placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
+                  <Input name="name" required placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-gray-400">Business Name</label>
-                  <Input required placeholder="ACME Corp" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
+                  <Input name="business" required placeholder="ACME Corp" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Email Address</label>
-                <Input type="email" required placeholder="john@example.com" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
+                <Input name="email" type="email" required placeholder="john@example.com" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Your Requirement</label>
-                <Textarea required placeholder="I'm interested in an AI chatbot for my website..." className="min-h-[120px] bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
+                <Textarea name="message" required placeholder="I'm interested in an AI chatbot for my website..." className="min-h-[120px] bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 disabled={isSubmitting}
                 className="w-full h-12 mt-4 bg-[#00f0ff] text-black hover:bg-white font-semibold shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all"
               >

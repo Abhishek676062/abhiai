@@ -26,10 +26,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="flex flex-col gap-3 text-gray-400 text-sm">
-              <li><Link href="#services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="#demo" className="hover:text-white transition-colors">AI Demo</Link></li>
-              <li><Link href="#why-us" className="hover:text-white transition-colors">Why Choose Us</Link></li>
-              <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -37,10 +36,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="flex flex-col gap-3 text-gray-400 text-sm">
-              <li><Link href="#" className="hover:text-white transition-colors">Go Digital</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">AI Business Solutions</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Full Stack + AI</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Career Accelerator</Link></li>
+              <li><Link href="/ai-agent-development" className="hover:text-white transition-colors">AI Agent Development</Link></li>
+              <li><Link href="/ai-automation-services" className="hover:text-white transition-colors">AI Automation</Link></li>
+              <li><Link href="/ai-chatbot-development" className="hover:text-white transition-colors">Chatbot Development</Link></li>
             </ul>
           </div>
 
@@ -65,8 +63,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Abhi.ai. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-gray-500">
-            <Link href="#" className="hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>

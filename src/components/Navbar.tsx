@@ -34,15 +34,15 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <Link href="#services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
-          <Link href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</Link>
-          <Link href="#results" className="text-gray-300 hover:text-white transition-colors">Results</Link>
-          <Link href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</Link>
+          <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
+          <Link href="/#demo" className="text-gray-300 hover:text-white transition-colors">Demo</Link>
+          <Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
+          <Link href="/case-studies" className="text-gray-300 hover:text-white transition-colors">Success Stories</Link>
         </nav>
 
         {/* CTA */}
         <div className="hidden md:block">
-          <Link href="#contact">
+          <Link href="/contact">
             <Button className="bg-[#00f0ff] text-black hover:bg-white hover:text-black transition-colors font-semibold px-6 shadow-[0_0_15px_rgba(0,240,255,0.5)]">
               Book Consultation
             </Button>
