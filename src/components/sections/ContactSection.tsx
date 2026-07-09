@@ -1,21 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t, language } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    // Replace YOUR_ACCESS_KEY_HERE with the key you get from web3forms.com
     formData.append("access_key", "3582659b-5551-4cf3-8e4c-1018b0749b7c");
 
     try {
@@ -27,13 +27,25 @@ export default function ContactSection() {
       const data = await response.json();
 
       if (data.success) {
-        alert("Success! Your message has been sent. We will contact you shortly.");
+        alert(
+          language === "en"
+            ? "Success! Your message has been sent. We will contact you shortly."
+            : "सफलता! आपका संदेश भेज दिया गया है। हम जल्द ही आपसे संपर्क करेंगे।"
+        );
         (e.target as HTMLFormElement).reset();
       } else {
-        alert("Something went wrong. Please try again or email us directly.");
+        alert(
+          language === "en"
+            ? "Something went wrong. Please try again or email us directly."
+            : "कुछ गलत हो गया। कृपया पुन: प्रयास करें या सीधे हमें ईमेल करें।"
+        );
       }
     } catch (error) {
-      alert("Error sending message. Please check your internet connection.");
+      alert(
+        language === "en"
+          ? "Error sending message. Please check your internet connection."
+          : "संदेश भेजने में त्रुटि। कृपया अपना इंटरनेट कनेक्शन जांचें।"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -46,9 +58,12 @@ export default function ContactSection() {
 
           {/* Left: Info */}
           <div className="md:w-2/5 p-10 bg-gradient-to-br from-[#0a0a0a] to-[#1a1a2e] border-r border-white/10">
-            <h3 className="text-3xl font-bold text-white mb-4 font-heading">Let's Build the <span className="text-[#00f0ff]">Future</span></h3>
+            <h3 className="text-3xl font-bold text-white mb-4 font-heading">
+              {t("contact.titleNormal")}{" "}
+              <span className="text-[#00f0ff]">{t("contact.titleHighlight")}</span>
+            </h3>
             <p className="text-gray-400 mb-8">
-              Book a free consultation to discuss how AI can transform your business operations and accelerate your growth.
+              {t("contact.description")}
             </p>
 
             <div className="space-y-6">
@@ -75,27 +90,27 @@ export default function ContactSection() {
 
           {/* Right: Form */}
           <div className="md:w-3/5 p-10">
-            <h3 className="text-2xl font-bold text-white mb-6">Send us a message</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t("contact.formTitle")}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-sm text-gray-400">Your Name</label>
+                  <label className="text-sm text-gray-400">{t("contact.name")}</label>
                   <Input name="name" required placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm text-gray-400">Business Name</label>
+                  <label className="text-sm text-gray-400">{t("contact.businessName")}</label>
                   <Input name="business" required placeholder="ACME Corp" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm text-gray-400">Email Address</label>
+                <label className="text-sm text-gray-400">{t("contact.email")}</label>
                 <Input name="email" type="email" required placeholder="john@example.com" className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm text-gray-400">Your Requirement</label>
-                <Textarea name="message" required placeholder="I'm interested in an AI chatbot for my website..." className="min-h-[120px] bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
+                <label className="text-sm text-gray-400">{t("contact.requirement")}</label>
+                <Textarea name="message" required placeholder={language === "en" ? "I'm interested in an AI chatbot..." : "मैं अपनी वेबसाइट के लिए AI चैटबॉट चाहता हूँ..."} className="min-h-[120px] bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]" />
               </div>
 
               <Button
@@ -103,7 +118,7 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 className="w-full h-12 mt-4 bg-[#00f0ff] text-black hover:bg-white font-semibold shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all"
               >
-                {isSubmitting ? "Sending..." : "Book Free Consultation"}
+                {isSubmitting ? t("contact.submitBtnSending") : t("contact.submitBtn")}
                 {!isSubmitting && <Send className="ml-2 w-4 h-4" />}
               </Button>
             </form>

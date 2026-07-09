@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, DollarSign, Zap, Target } from "lucide-react";
+import { Brain, DollarSign, Zap, UserCheck } from "lucide-react";
 
 const reasons = [
   {
-    icon: <Brain className="w-8 h-8 text-[#00f0ff]" />,
-    title: "AI Expertise",
-    description: "Deep knowledge of RAG, Agents, and LLMs to build cutting-edge solutions."
+    icon: <UserCheck className="w-8 h-8 text-[#00f0ff]" />,
+    title: "1-on-1 Personal Attention",
+    description: "You work directly with Abhishek — a Fullstack AI Engineer. No middlemen, no juniors assigned to your project."
   },
   {
-    icon: <DollarSign className="w-8 h-8 text-[#7c3aed]" />,
-    title: "Affordable Pricing",
-    description: "Premium tech solutions designed specifically for SME budgets."
+    icon: <Brain className="w-8 h-8 text-[#7c3aed]" />,
+    title: "End-to-End AI Expertise",
+    description: "From graphic design to SaaS apps, RAG chatbots to voice agents — one person who can build everything you need."
   },
   {
-    icon: <Zap className="w-8 h-8 text-[#00f0ff]" />,
-    title: "Fast Delivery",
-    description: "Agile development process ensures your system is up and running in weeks, not months."
+    icon: <DollarSign className="w-8 h-8 text-[#00f0ff]" />,
+    title: "Built for Indian Budgets",
+    description: "No ₹5 lakh quotes for a chatbot. We deliver premium AI solutions at prices that make sense for Indian businesses."
   },
   {
-    icon: <Target className="w-8 h-8 text-[#7c3aed]" />,
-    title: "Real Business Impact",
-    description: "Everything we build is focused on ROI: getting leads, saving time, increasing revenue."
+    icon: <Zap className="w-8 h-8 text-[#7c3aed]" />,
+    title: "Delivery in Days, Not Months",
+    description: "Zero corporate overhead means your project starts immediately and ships fast. Most projects live in 2-4 weeks."
   }
 ];
 
@@ -38,16 +38,25 @@ export default function WhyChooseUsSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold mb-6 font-heading"
             >
-              Why Partner With <span className="text-[#7c3aed]">Abhi.ai</span>?
+              Why Work With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7c3aed]">Abhi.ai</span>?
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
+              className="text-gray-400 text-lg mb-4"
+            >
+              I'm Abhishek Sharma — an AI/ML Engineer certified by Stanford, Google, and AWS. I've built everything from health AI assistants (featured in Patrika newspaper) to enterprise voice agents.
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
               className="text-gray-400 text-lg mb-8"
             >
-              Led by Abhishek Sharma, an AI/ML Engineer and Generative AI Expert, our team bridges the gap between advanced artificial intelligence and practical business applications.
+              My mission: <strong className="text-white">help every Indian business — from a single-person shop to an MNC — harness AI at an affordable price</strong> and turn their growth dreams into reality.
             </motion.p>
           </div>
 

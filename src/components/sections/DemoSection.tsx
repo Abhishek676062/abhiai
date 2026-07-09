@@ -1,13 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Bot, User } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
+/* Keyword → response map for a smarter demo */
+const AI_RESPONSES: Record<string, string> = {
+  "chatbot": "Great question! I build custom RAG chatbots that learn from YOUR documents — product manuals, FAQs, pricing sheets. They answer customer queries 24/7 on your website or WhatsApp, reducing your support load by up to 80%. Pricing starts at ₹14,999/mo.",
+  "whatsapp": "WhatsApp automation is our most popular service! I can build a bot that handles appointment bookings, order tracking, FAQ responses, and even sends automated follow-ups. One clinic we helped reduced missed appointments by 60%.",
+  "voice": "Our AI Voice Agents can handle sales calls, customer support, and appointment scheduling with a natural Indian accent. They work 24/7, never take sick leave, and cost a fraction of a human team.",
+  "price": "Our pricing is transparent: Starter plans from ₹4,999/mo for digital presence, Growth plans from ₹14,999/mo with AI automation, and custom Enterprise AI projects from ₹29,999+. We always give a free AI audit first!",
+  "cost": "Our pricing is transparent: Starter plans from ₹4,999/mo for digital presence, Growth plans from ₹14,999/mo with AI automation, and custom Enterprise AI projects from ₹29,999+. We always give a free AI audit first!",
+  "website": "I build high-conversion websites using Next.js and React — optimized for speed, SEO, and lead generation. Unlike template builders, every site is custom-coded for your brand and business goals.",
+  "saas": "I build custom SaaS applications from scratch — dashboards, CRMs, internal tools — all powered by AI. Think of it as your own software, tailored exactly to how your business operates.",
+  "who": "I'm Abhishek Sharma, a Fullstack AI Engineer certified by Stanford, Google, and AWS. I've been featured in Patrika newspaper for my Health AI project. I personally handle every project, so you get expert-level attention.",
+  "hello": "Hello! Welcome to Abhi.ai. I can help you understand how AI automation can save you time and increase your revenue. Try asking about chatbots, WhatsApp automation, pricing, or voice agents!",
+  "hi": "Hi there! I'm the Abhi.ai demo assistant. Ask me anything — about our services, pricing, what kind of AI we build, or how we can help your specific business!",
+};
+
+const DEFAULT_RESPONSE = "That's a great question! At Abhi.ai, I specialize in building custom AI solutions — from chatbots and voice agents to full SaaS applications. Every project is unique. Try asking about 'chatbot', 'WhatsApp automation', 'pricing', or 'voice agent' to see specific answers!";
+
+function getAIResponse(userMessage: string): string {
+  const lower = userMessage.toLowerCase();
+  for (const [keyword, response] of Object.entries(AI_RESPONSES)) {
+    if (lower.includes(keyword)) return response;
+  }
+  return DEFAULT_RESPONSE;
+}
+
 const MOCK_MESSAGES = [
-  { role: "ai", text: "Hi! I am the Abhi.ai Smart Assistant. I can answer questions about your business 24/7. What would you like to ask?" },
+  { role: "ai", text: "Hi! I'm the Abhi.ai Smart Assistant 🤖 I can answer questions about our AI services, pricing, and how we can help your business grow. Try asking about chatbots, WhatsApp automation, or our pricing!" },
 ];
 
 export default function DemoSection() {
@@ -17,20 +41,22 @@ export default function DemoSection() {
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() || isTyping) return;
 
-    setMessages(prev => [...prev, { role: "user", text: input }]);
+    const userMsg = input.trim();
+    setMessages(prev => [...prev, { role: "user", text: userMsg }]);
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI response
+    // Simulate AI thinking delay
+    const delay = 800 + Math.random() * 1200;
     setTimeout(() => {
       setMessages(prev => [...prev, { 
         role: "ai", 
-        text: "That's exactly what I'm built for! I use Retrieval-Augmented Generation (RAG) to instantly answer questions based on your specific company data. I help reduce support tickets by 80%." 
+        text: getAIResponse(userMsg) 
       }]);
       setIsTyping(false);
-    }, 1500);
+    }, delay);
   };
 
   return (
@@ -51,24 +77,24 @@ export default function DemoSection() {
                 <span className="text-sm font-medium">Interactive Demo</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 font-heading">
-                Experience the Power of an <span className="text-[#00f0ff]">AI Chatbot</span>
+                See What an <span className="text-[#00f0ff]">AI Chatbot</span> Can Do
               </h2>
               <p className="text-gray-400 text-lg mb-8">
-                Imagine having a customer support agent that never sleeps, knows everything about your business, and instantly replies to your customers. Try it yourself!
+                This is a simplified demo — the real bots we build use your actual company documents (RAG) and integrate with WhatsApp, websites, and voice systems. Try asking questions!
               </p>
               
               <ul className="space-y-4 text-gray-300">
                 <li className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]">✓</div>
-                  Answers from your custom data (RAG)
+                  Try asking: "What is your pricing?"
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]">✓</div>
-                  Integrates with WhatsApp & Websites
+                  Try asking: "Tell me about WhatsApp automation"
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]">✓</div>
-                  Reduces manual work by up to 80%
+                  Try asking: "Can you build a voice agent?"
                 </li>
               </ul>
             </motion.div>
@@ -88,6 +114,7 @@ export default function DemoSection() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 <span className="ml-4 text-sm font-medium text-gray-300">Abhi.ai Smart Demo</span>
+                <span className="ml-auto text-[10px] text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">● Live</span>
               </div>
               
               <div className="h-[400px] p-6 overflow-y-auto flex flex-col gap-4">
@@ -124,10 +151,10 @@ export default function DemoSection() {
                   <Input 
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask about business..." 
+                    placeholder="Ask about chatbots, pricing, WhatsApp..." 
                     className="bg-black/50 border-white/10 focus-visible:ring-[#00f0ff]"
                   />
-                  <Button type="submit" size="icon" className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white">
+                  <Button type="submit" size="icon" className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white" disabled={isTyping}>
                     <Send size={18} />
                   </Button>
                 </form>

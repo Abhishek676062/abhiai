@@ -107,3 +107,27 @@
   from { transform: translateY(0); }
   to { transform: translateY(-20px); }
 }
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Smooth scroll anchor offset for fixed navbar */
+[id] {
+  scroll-margin-top: 100px;
+}

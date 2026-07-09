@@ -36,22 +36,19 @@ module.exports = {
       changefreq = 'daily'
     }
 
-    if (path.includes('ai-agent')) {
-      priority = 0.95
+    if (
+      path.includes('ai-agent') || 
+      path.includes('ai-automation') || 
+      path.includes('chatbot') ||
+      path.includes('llm') ||
+      path.includes('rag')
+    ) {
+      // Elevate all core AI service pages to maximum priority for localized SEO dominance
+      priority = 1.0
       changefreq = 'daily'
     }
 
-    if (path.includes('ai-automation')) {
-      priority = 0.95
-      changefreq = 'daily'
-    }
-
-    if (path.includes('chatbot')) {
-      priority = 0.9
-      changefreq = 'daily'
-    }
-
-    if (path.includes('blog')) {
+    if (path.includes('blog') || path.includes('case-studies')) {
       priority = 0.8
       changefreq = 'daily'
     }

@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { ArrowRight, Bot } from "lucide-react";
+import { ArrowRight, Bot, Star } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Gradient & Effects */}
@@ -20,7 +23,9 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glassmorphism mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
-          <span className="text-sm text-gray-300 font-medium">Premium AI Services & Automation</span>
+          <span className="text-sm text-gray-300 font-medium">
+            {t("hero.badge")}
+          </span>
         </motion.div>
 
         <motion.h1
@@ -29,9 +34,9 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-heading"
         >
-          We Turn Your Business Into an <br className="hidden md:block" />
+          {t("hero.titleNormal")} <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7c3aed] neon-text-cyan">
-            AI-Powered System
+            {t("hero.titleHighlight")}
           </span>
         </motion.h1>
 
@@ -39,10 +44,27 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10"
+          className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8"
         >
-          From going digital to full AI automation — we help you grow faster, save time, and dramatically increase your revenue.
+          {t("hero.description")}
         </motion.p>
+        
+        {/* Social Proof — Real, Honest */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="flex items-center gap-3 mb-10"
+        >
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <Star key={i} size={14} className="text-yellow-500" fill="currentColor" />
+            ))}
+          </div>
+          <span className="text-sm text-gray-300 font-medium">
+            {t("hero.socialProof")}
+          </span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,12 +74,12 @@ export default function HeroSection() {
         >
           <Link href="#contact" className="w-full sm:w-auto">
             <Button size="lg" className="w-full sm:w-auto bg-[#00f0ff] text-black hover:bg-white hover:text-black transition-all text-lg h-14 px-8 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
-              Get Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              {t("hero.ctaAudit")} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
           <Link href="#demo" className="w-full sm:w-auto">
             <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/20 hover:bg-white/10 text-white text-lg h-14 px-8 backdrop-blur-sm">
-              <Bot className="mr-2 h-5 w-5 text-[#7c3aed]" /> View Demo
+              <Bot className="mr-2 h-5 w-5 text-[#7c3aed]" /> {t("hero.ctaDemo")}
             </Button>
           </Link>
         </motion.div>

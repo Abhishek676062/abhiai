@@ -1,37 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Cpu, Code2, GraduationCap, ArrowRight } from "lucide-react";
+import { Globe, Cpu, Code2, ArrowRight, Building2, User, Factory } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../ui/card";
 import { Button } from "../ui/button";
 import Link from "next/link";
-
-const services = [
-  {
-    title: "Go Digital",
-    description: "Establish a strong online presence to attract local customers.",
-    icon: <Globe className="w-10 h-10 text-[#00f0ff]" />,
-    features: ["Google Business Profile setup", "Social media management", "Website development", "WhatsApp automation"],
-  },
-  {
-    title: "AI Business Solutions",
-    description: "Automate customer support and internal workflows.",
-    icon: <Cpu className="w-10 h-10 text-[#7c3aed]" />,
-    features: ["AI chatbot (RAG-based)", "Voice AI agents", "Automation workflows", "AI system integration"],
-  },
-  {
-    title: "Full Stack + AI",
-    description: "Custom software tailored to your unique business needs.",
-    icon: <Code2 className="w-10 h-10 text-[#00f0ff]" />,
-    features: ["Custom SaaS apps", "AI-powered dashboards", "CRM/ERP with AI", "API integrations"],
-  },
-  {
-    title: "Career Accelerator",
-    description: "Level up your tech career with AI tools and preparation.",
-    icon: <GraduationCap className="w-10 h-10 text-[#7c3aed]" />,
-    features: ["Resume (ATS optimized)", "Portfolio building", "Mock interviews", "AI tools training"],
-  }
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 const container = {
   hidden: { opacity: 0 },
@@ -47,15 +21,59 @@ const item = {
 };
 
 export default function ServicesSection() {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      title: t("services.goDigital.title"),
+      description: t("services.goDigital.description"),
+      icon: <Globe className="w-10 h-10 text-[#00f0ff]" />,
+      features: [
+        t("services.features.website"),
+        t("services.features.gbp"),
+        t("services.features.social"),
+        t("services.features.whatsapp")
+      ],
+      bestFor: t("services.goDigital.bestFor"),
+      bestForIcon: <User size={12} />,
+    },
+    {
+      title: t("services.aiAutomation.title"),
+      description: t("services.aiAutomation.description"),
+      icon: <Cpu className="w-10 h-10 text-[#7c3aed]" />,
+      features: [
+        t("services.features.rag"),
+        t("services.features.voice"),
+        t("services.features.chatbot"),
+        t("services.features.lead")
+      ],
+      bestFor: t("services.aiAutomation.bestFor"),
+      bestForIcon: <Building2 size={12} />,
+    },
+    {
+      title: t("services.customSaaS.title"),
+      description: t("services.customSaaS.description"),
+      icon: <Code2 className="w-10 h-10 text-[#00f0ff]" />,
+      features: [
+        t("services.features.saas"),
+        t("services.features.dashboard"),
+        t("services.features.crm"),
+        t("services.features.api")
+      ],
+      bestFor: t("services.customSaaS.bestFor"),
+      bestForIcon: <Factory size={12} />,
+    },
+  ];
+
   return (
     <section id="services" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7c3aed]">Services</span>
+            {t("services.titleNormal")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#7c3aed]">{t("services.titleHighlight")}</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Everything you need to modernize your business, save time, and drive massive growth through intelligent automation.
+            {t("services.description")}
           </p>
         </div>
 
@@ -64,7 +82,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {services.map((service, idx) => (
             <motion.div key={idx} variants={item} className="h-full">
@@ -85,11 +103,16 @@ export default function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+                  {/* Best For Tag */}
+                  <div className="flex items-center gap-1.5 text-xs text-[#7c3aed] bg-[#7c3aed]/10 px-3 py-1.5 rounded-full w-fit border border-[#7c3aed]/20">
+                    {service.bestForIcon}
+                    <span className="font-medium">Best for: {service.bestFor}</span>
+                  </div>
                 </CardContent>
                 <CardFooter>
                   <Link href="#contact" className="w-full">
                     <Button variant="ghost" className="w-full text-[#00f0ff] hover:text-white hover:bg-[#00f0ff]/20">
-                      Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                      {t("services.cta")} <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
                 </CardFooter>
