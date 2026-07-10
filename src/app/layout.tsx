@@ -94,9 +94,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased dark scroll-smooth`}
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased dark scroll-smooth overflow-x-hidden`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground relative">
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground relative overflow-x-hidden w-full">
         {/* LocalBusiness & Organization Schema */}
         <script
           type="application/ld+json"
@@ -233,11 +233,13 @@ export default function RootLayout({
           }}
         />
         <ClientWrapper>
-          <TopBanner />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
+            <TopBanner />
+            <Navbar />
+            <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </div>
         </ClientWrapper>
       </body>
     </html>
