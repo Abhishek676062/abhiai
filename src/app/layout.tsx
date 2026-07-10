@@ -44,6 +44,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Abhishek Sharma", url: "https://www.abhiai.in/about" }],
   creator: "Abhishek Sharma",
   publisher: "Abhi.ai",
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" }
+    ],
+    shortcut: ["/logo.png"],
+    apple: [
+      { url: "/logo.png", sizes: "180x180", type: "image/png" }
+    ]
+  },
   openGraph: {
     title: "Abhi.ai | Top AI Automation Agency in India & MP",
     description:
