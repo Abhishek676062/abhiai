@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot Development | Abhi.ai",
-  description: "Custom RAG-based AI chatbots for websites and WhatsApp. Reduce support load and increase conversions with intelligent conversation.",
+  alternates: {
+    canonical: "/ai-chatbot-development",
+  },
+  title: "Custom AI Chatbot Development | WhatsApp & Website Bots | Abhi.ai",
+  description: "Boost sales & automate support with custom RAG AI chatbots for websites and WhatsApp. Engage customers 24/7 with intelligent conversations. Book a demo today!",
   keywords: ["AI Chatbot Development", "RAG Chatbots", "WhatsApp AI Bots", "Customer Support Automation"],
 };
 

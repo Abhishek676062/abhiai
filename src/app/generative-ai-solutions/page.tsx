@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Generative AI Solutions | Abhi.ai",
-  description: "Custom generative AI solutions for creative and business applications. Image generation, text synthesis, and more.",
+  alternates: {
+    canonical: "/generative-ai-solutions",
+  },
+  title: "Generative AI Solutions | Custom Image & Text Synthesis | Abhi.ai",
+  description: "Transform your creative and business applications with our generative AI solutions. Expert text synthesis and image generation. Discover the possibilities today!",
   keywords: ["Generative AI Solutions", "AI Image Generation", "Text Synthesis", "Creative AI"],
 };
 

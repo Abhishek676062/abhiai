@@ -62,7 +62,7 @@
 
   /* Custom Neon Accents */
   --neon-cyan: #00f0ff;
-  --neon-purple: #7c3aed;
+  --neon-purple: #9333ea; /* Lightened from #7c3aed for better WCAG contrast on black */
 }
 
 .dark {
@@ -79,6 +79,9 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    @apply outline-none ring-2 ring-[#00f0ff] ring-offset-2 ring-offset-background rounded-sm;
   }
 }
 

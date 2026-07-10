@@ -2,6 +2,9 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/privacy-policy",
+  },
   title: "Privacy Policy | Abhi.ai",
   description: "Read the privacy policy of Abhi.ai to understand how we handle your data.",
 };

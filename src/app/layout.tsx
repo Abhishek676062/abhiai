@@ -19,15 +19,12 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.abhiai.in"),
-  alternates: {
-    canonical: "/",
-  },
   title: {
-    default: "Top AI Automation Agency in India | Abhi.ai Solutions",
+    default: "Top AI Automation Agency in India | Custom AI Agents | Abhi.ai",
     template: "%s | Abhi.ai",
   },
   description:
-    "Double your sales & cut costs with custom AI automation, RAG chatbots, and full-stack AI development. Trusted AI agency in Indore, MP, and across India.",
+    "Looking to scale? Abhi.ai is India's top AI automation agency. We build custom RAG chatbots & AI agents to double sales and cut costs. Book a free demo today!",
   keywords: [
     "AI automation agency India",
     "AI agency Indore",
@@ -54,9 +51,9 @@ export const metadata: Metadata = {
     ]
   },
   openGraph: {
-    title: "Abhi.ai | Top AI Automation Agency in India & MP",
+    title: "Top AI Automation Agency in India | Custom AI Agents | Abhi.ai",
     description:
-      "Transform your business with AI. Custom RAG chatbots, WhatsApp automation, voice AI agents, and full-stack development tailored for SME growth in India.",
+      "Looking to scale? Abhi.ai is India's top AI automation agency. We build custom RAG chatbots & AI agents to double sales and cut costs. Book a free demo today!",
     url: "https://www.abhiai.in",
     siteName: "Abhi.ai",
     images: [
@@ -72,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhi.ai | AI Solutions & Automation",
+    title: "Top AI Automation Agency in India | Custom AI Agents | Abhi.ai",
     description:
-      "Transform your business with AI. Chatbots, automation, and full-stack development tailored for growth.",
+      "Looking to scale? Abhi.ai is India's top AI automation agency. We build custom RAG chatbots & AI agents to double sales and cut costs. Book a free demo today!",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -113,6 +110,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["Organization", "ProfessionalService"],
+              "@id": "https://www.abhiai.in/#organization",
               name: "Abhi.ai",
               alternateName: "AbhiAI",
               url: "https://www.abhiai.in",
@@ -125,9 +123,12 @@ export default function RootLayout({
               priceRange: "₹₹",
               address: {
                 "@type": "PostalAddress",
+                addressLocality: "Mandsaur",
                 addressRegion: "Madhya Pradesh",
+                postalCode: "458441",
                 addressCountry: "IN",
               },
+              openingHours: "Mo,Tu,We,Th,Fr,Sa 09:00-18:00",
               areaServed: [
                 { "@type": "City", name: "Indore" },
                 { "@type": "City", name: "Mandsaur" },
@@ -167,63 +168,7 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* FAQ Schema for AEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "What is the best AI automation agency for SMEs in India?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Abhi.ai is a top-rated AI automation agency in India, serving businesses globally and locally in Madhya Pradesh (Indore, Mandsaur, Ujjain, Ratlam). We build custom AI agents, RAG chatbots, and full-stack applications designed to double sales and cut operational costs by 40%."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  name: "How can AI chatbots help my business?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Custom RAG chatbots and Voice AI agents from Abhi.ai can handle 24/7 customer support, automate WhatsApp lead generation, and provide intelligent data retrieval, allowing your team to focus on high-value tasks."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  name: "Do you provide AI services in Madhya Pradesh?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes, Abhi.ai is headquartered in India and provides specialized AI automation, software development, and generative AI services across Madhya Pradesh, including Indore, Ujjain, Mandsaur, Ratlam, Sitamau, and Suwasra."
-                  }
-                }
-              ]
-            })
-          }}
-        />
-        {/* Service Schema for GEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              serviceType: "AI Automation & Chatbot Development",
-              provider: {
-                "@type": "ProfessionalService",
-                name: "Abhi.ai",
-                image: "https://www.abhiai.in/og-image.jpg"
-              },
-              areaServed: {
-                "@type": "Country",
-                name: "India"
-              },
-              description: "Custom AI agent development, RAG chatbots, WhatsApp automation, and Next.js full-stack applications for SMEs."
-            })
-          }}
-        />
+
         {/* WebSite Schema for Sitelinks */}
         <script
           type="application/ld+json"

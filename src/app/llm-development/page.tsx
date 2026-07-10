@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LLM Development & Tuning | Abhi.ai",
-  description: "Expert LLM development and fine-tuning. We customize Large Language Models for specific industry niches and requirements.",
+  alternates: {
+    canonical: "/llm-development",
+  },
+  title: "Custom LLM Development & Fine-Tuning Services | Abhi.ai",
+  description: "Leverage industry-specific intelligence with our expert LLM development and fine-tuning services. Custom GPTs & open-source models. Book a consultation now!",
   keywords: ["LLM Development", "Fine-Tuning", "Language Models", "Custom GPT", "Open Source LLMs"],
 };
 

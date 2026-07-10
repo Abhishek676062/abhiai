@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Agent Development | Abhi.ai",
-  description: "Custom AI Agent development for business automation. We build autonomous agents that handle complex tasks, research, and workflows.",
+  alternates: {
+    canonical: "/ai-agent-development",
+  },
+  title: "Custom AI Agent Development Services | Automate Workflows | Abhi.ai",
+  description: "Scale your business with our custom AI agent development services. We build autonomous agents to automate complex workflows and research. Get a free consultation!",
   keywords: ["AI Agent Development", "Autonomous Agents", "Business Automation", "Custom AI Solutions"],
 };
 

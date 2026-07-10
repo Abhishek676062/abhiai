@@ -23,8 +23,8 @@ export default function Footer() {
               {t("footer.desc")}
             </p>
             <div className="flex items-center gap-4 text-gray-400">
-              <Link href="https://www.linkedin.com/in/abhi-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors"><FaLinkedin size={20} /></Link>
-              <Link href="https://www.instagram.com/abhi.ai_/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors"><FaInstagram size={20} /></Link>
+              <Link href="https://www.linkedin.com/in/abhi-ai/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors" aria-label="Abhi.ai LinkedIn Profile"><FaLinkedin size={20} /></Link>
+              <Link href="https://www.instagram.com/abhi.ai_/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00f0ff] transition-colors" aria-label="Abhi.ai Instagram Profile"><FaInstagram size={20} /></Link>
             </div>
           </div>
 
@@ -68,9 +68,10 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Abhi.ai. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-            <Link href="/privacy-policy" className="hover:text-white">{t("footer.privacyPolicy")}</Link>
-            <Link href="/terms-of-service" className="hover:text-white">{t("footer.termsOfService")}</Link>
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
+            <Link href="/privacy-policy" className="hover:text-white focus-visible:ring-1 focus-visible:ring-white rounded focus:outline-none">{t("footer.privacyPolicy")}</Link>
+            <Link href="/terms-of-service" className="hover:text-white focus-visible:ring-1 focus-visible:ring-white rounded focus:outline-none">{t("footer.termsOfService")}</Link>
+            <Link href="/refund-policy" className="hover:text-white focus-visible:ring-1 focus-visible:ring-white rounded focus:outline-none">Refund Policy</Link>
           </div>
         </div>
       </div>

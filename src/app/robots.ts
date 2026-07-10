@@ -8,7 +8,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/"],
       },
+      {
+        userAgent: ["PerplexityBot", "ChatGPT-User", "Google-Extended", "Claude-Web"],
+        allow: "/",
+      }
     ],
     sitemap: "https://www.abhiai.in/sitemap.xml",
+    host: "https://www.abhiai.in",
   };
 }

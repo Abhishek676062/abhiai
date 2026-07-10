@@ -36,6 +36,7 @@ export default function ServicesSection() {
       ],
       bestFor: t("services.goDigital.bestFor"),
       bestForIcon: <User size={12} />,
+      link: "/ai-chatbot-development",
     },
     {
       title: t("services.aiAutomation.title"),
@@ -49,6 +50,7 @@ export default function ServicesSection() {
       ],
       bestFor: t("services.aiAutomation.bestFor"),
       bestForIcon: <Building2 size={12} />,
+      link: "/ai-automation-services",
     },
     {
       title: t("services.customSaaS.title"),
@@ -62,6 +64,7 @@ export default function ServicesSection() {
       ],
       bestFor: t("services.customSaaS.bestFor"),
       bestForIcon: <Factory size={12} />,
+      link: "/ai-agent-development",
     },
   ];
 
@@ -110,9 +113,9 @@ export default function ServicesSection() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Link href="#contact" className="w-full">
+                  <Link href={service.link} className="w-full">
                     <Button variant="ghost" className="w-full text-[#00f0ff] hover:text-white hover:bg-[#00f0ff]/20">
-                      {t("services.cta")} <ArrowRight className="ml-2 w-4 h-4" />
+                      Learn More <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
                 </CardFooter>

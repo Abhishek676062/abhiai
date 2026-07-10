@@ -2,6 +2,9 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/terms-of-service",
+  },
   title: "Terms of Service | Abhi.ai",
   description: "Read the terms of service of Abhi.ai for our AI development and automation services.",
 };

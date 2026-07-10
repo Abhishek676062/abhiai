@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RAG-Based AI Systems | Abhi.ai",
-  description: "Advanced Retrieval-Augmented Generation (RAG) systems. We connect AI to your private data for accurate, context-aware responses.",
+  alternates: {
+    canonical: "/rag-based-ai",
+  },
+  title: "Custom RAG-Based AI Systems | Secure Private Data AI | Abhi.ai",
+  description: "Unlock your data's potential with advanced Retrieval-Augmented Generation (RAG) systems. Secure, accurate, and context-aware private AI. Get a free quote!",
   keywords: ["RAG-Based AI", "Retrieval-Augmented Generation", "Private AI", "Context-Aware AI"],
 };
 

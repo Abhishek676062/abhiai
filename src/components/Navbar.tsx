@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
 
@@ -44,8 +44,18 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Main navigation">
-          <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">{t("navbar.services")}</Link>
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium" aria-label="Main navigation">
+          <div className="relative group">
+            <Link href="/#services" className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-1">
+              {t("navbar.services")} <ChevronDown className="w-4 h-4" />
+            </Link>
+            <div className="absolute top-full left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-black/90 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden flex flex-col py-2 shadow-2xl">
+              <Link href="/ai-agent-development" className="px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white text-sm">AI Agent Development</Link>
+              <Link href="/ai-chatbot-development" className="px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white text-sm">AI Chatbots & RAG</Link>
+              <Link href="/ai-automation-services" className="px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white text-sm">Workflow Automation</Link>
+              <Link href="/llm-development" className="px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white text-sm">LLM Fine-Tuning</Link>
+            </div>
+          </div>
           <Link href="/#showcase" className="text-gray-300 hover:text-white transition-colors">{t("navbar.showcase")}</Link>
           <Link href="/#demo" className="text-gray-300 hover:text-white transition-colors">{t("navbar.demo")}</Link>
           <Link href="/#pricing" className="text-gray-300 hover:text-white transition-colors">{t("navbar.pricing")}</Link>
@@ -58,6 +68,7 @@ export default function Navbar() {
             onClick={() => setLanguage(language === "en" ? "hi" : "en")}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-xs font-semibold text-gray-300 hover:text-white transition-all"
             title={language === "en" ? "Translate to Hindi" : "Translate to English"}
+            aria-label={language === "en" ? "Translate to Hindi" : "Translate to English"}
           >
             <Globe size={14} className="text-[#00f0ff]" />
             <span>{language === "en" ? "हिंदी" : "EN"}</span>
@@ -75,6 +86,8 @@ export default function Navbar() {
           <button
             onClick={() => setLanguage(language === "en" ? "hi" : "en")}
             className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-gray-300"
+            title={language === "en" ? "Translate to Hindi" : "Translate to English"}
+            aria-label={language === "en" ? "Translate to Hindi" : "Translate to English"}
           >
             <Globe size={12} className="text-[#00f0ff]" />
             <span>{language === "en" ? "हिंदी" : "EN"}</span>
@@ -84,6 +97,7 @@ export default function Navbar() {
             className="text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>

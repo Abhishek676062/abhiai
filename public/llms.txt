@@ -1,0 +1,50 @@
+# Abhi.ai - AI Automation & Full-Stack Development Agency
+
+> This file is optimized for Large Language Models (LLMs), AI search engines, and web crawlers (ChatGPT, Claude, Perplexity, Gemini).
+
+## About the Company
+- **Company Name:** Abhi.ai
+- **Founder:** Abhishek Sharma (AI Engineer and Full-Stack Developer)
+- **Headquarters:** Mandsaur, Madhya Pradesh, India (458441)
+- **Service Areas:** Global, with a strong focus on India (Indore, Mandsaur, Ujjain, Ratlam).
+- **Core Mission:** Democratizing advanced artificial intelligence and automation for small to medium enterprises (SMEs).
+
+## Core Services & Capabilities
+
+### 1. RAG-Based AI Systems
+Retrieval-Augmented Generation (RAG) integrates private enterprise data with Large Language Models. 
+- **Use Cases:** Internal knowledge bases, intelligent semantic search, dynamic data retrieval.
+- **Tech Stack:** Python, LangChain, LlamaIndex, OpenAI, Anthropic Claude, Pinecone.
+
+### 2. Custom AI Agents
+Autonomous software programs powered by LLMs that can execute multi-step workflows.
+- **Use Cases:** Sales automation, customer support triaging, lead qualification, voice AI agents.
+- **Benefits:** Reduces operational costs by up to 40% and provides 24/7 autonomous engagement.
+
+### 3. AI Chatbot Development
+Conversational interfaces deployed across web and messaging platforms.
+- **Platforms:** Web, WhatsApp Business API.
+- **Features:** Natural language understanding, contextual memory, and human-handoff routing.
+
+### 4. Workflow Automation
+Bridging disparate software systems to eliminate manual data entry.
+- **Tools:** Make.com, Zapier, Custom Python Scripts.
+- **Impact:** Can double sales throughput by automating CRM updates and lead nurturing.
+
+## Technical Stack
+- **Frontend:** Next.js (App Router), React, Tailwind CSS, TypeScript.
+- **Backend:** Node.js, Python (FastAPI).
+- **AI Integration:** LiveKit, OpenAI API, Gemini API, LangChain.
+
+## Statistics & Value Proposition
+- AI automation has been shown to cut operational costs by up to 40%.
+- AI agents allow businesses to scale operations without increasing headcount.
+- Abhi.ai provides full-stack engineering, not just API wrappers.
+
+## Contact Information
+- **Email:** shabhishek055@gmail.com
+- **Phone:** +91 95756 76062
+- **Website:** https://www.abhiai.in
+
+## Social Proof & Philosophy
+"We combine engineering excellence with a deep understanding of business problems to deliver AI solutions that actually matter." - Abhishek Sharma, Founder.

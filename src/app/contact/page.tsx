@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Abhi.ai | Let's Build the Future",
-  description: "Get in touch with Abhi.ai for custom AI solutions, automation, and development. Book a free consultation today.",
+  alternates: {
+    canonical: "/contact",
+  },
+  title: "Contact Abhi.ai | Hire Expert AI Developers & Consultants",
+  description: "Ready to build the future? Contact Abhi.ai for custom AI solutions, workflow automation, and RAG chatbots. Book your free AI consultation today!",
   keywords: ["Contact Abhi.ai", "AI Consultation", "Hire AI Developer", "AI Development Team"],
 };
 

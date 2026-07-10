@@ -2,8 +2,11 @@ import ServiceTemplate from "@/components/ServiceTemplate";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Case Studies | Abhi.ai",
-  description: "Real-world success stories of AI transformation. See how Abhi.ai helps businesses grow with intelligent automation.",
+  alternates: {
+    canonical: "/case-studies",
+  },
+  title: "AI Transformation Case Studies | Real-World Success | Abhi.ai",
+  description: "Explore our real-world AI case studies and success stories. Discover how Abhi.ai helps businesses scale through intelligent automation. Read our results!",
   keywords: ["AI Case Studies", "Success Stories", "AI Transformation", "ROI with AI"],
 };
 
